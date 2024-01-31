@@ -50,4 +50,19 @@ for i in valid_games:
     sum+=int(game_id)
 print(sum)
 
+##### Part2
+sum_power=0
+
+#{'Game1': {'turn1': {'green': 1, 'blue': 2}, 'turn2': {'red': 13, 'blue': 2, 'green': 3}, 'turn3': {'green': 4, 'red': 14}}
+for game_id,turns in games_dict.items():
+    max_color={'red':0,'green':0,'blue':0}
+    for turn,colors in turns.items():
+        for color,count in colors.items():
+            if count>max_color.get(color,0):
+                max_color[color]=count
+    #print(max_color)
+    power=max_color.get('red')*max_color.get('green')*max_color.get('blue')
+    #print(power)
+    sum_power+=power
+print(sum_power)
     
