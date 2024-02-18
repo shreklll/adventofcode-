@@ -1,7 +1,6 @@
 <?php
 
 $text = file_get_contents('input3.txt');
-
 // Function to check if a coordinate is valid within the bounds of the engine schematic
 function isValidCoordinate($x, $y, $width, $height) {
     return $x >= 0 && $x < $height && $y >= 0 && $y < $width;
@@ -14,7 +13,6 @@ function calculatePartNumberSum($input) {
     $height = count($lines);
     $width = strlen($lines[0])-1;
     $sum = 0;
-
     // Iterate through each cell in the engine schematic
     for ($x= 0; $x < $height; $x++) {
         for ($y= 0; $y < $width; $y++) {
@@ -37,11 +35,9 @@ function calculatePartNumberSum($input) {
                              echo " $number<br>";
                             break 2; // Exit both loops
                         }
-
                     }
                 }
                 if ($adjacentToSymbol) {
-                   
                     $sum += intval($number);
                 }
             }
